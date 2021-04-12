@@ -2,6 +2,7 @@ package com.streamliners.models;
 
 /**
  * represents a variant with...
+ *
  * name - name of the variant
  * price - price of the variant
  */
