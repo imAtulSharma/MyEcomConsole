@@ -11,58 +11,75 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        // Menu Driver - which displays options to the user
+        String optionsMenu = "Select your choice from the given ones..." +
+                "\n\n0: To exit the application(cancel order)" +
+                "\n1: To add product [ADMIN]" +
+                "\n2: To edit product [ADMIN]" +
+                "\n3: To delete product [ADMIN]" +
+                "\n4: See all products [ADMIN]" +
+                "\n\n5: To add product [CUSTOMER]" +
+                "\n6: To edit product [CUSTOMER]" +
+                "\n7: To remove product from cart [CUSTOMER]" +
+                "\n8: To See your cart [CUSTOMER]" +
+                "\n9: To place order [CUSTOMER]" +
+                "\nPlease enter your choice: ";
 
-        /*
-        // Trying Hash Map example
-        Map<String, Integer> map = new HashMap<>();
-        map.put("A", 123);
-        map.put("B", 456);
-        map.put("C", 789);
+        // Map of all the available products
+        HashMap<String, Product> products = new HashMap<>();
 
-        // return true if "A" exists in the map otherwise false
-        System.out.println(map.containsKey("A"));
-        */
-
-        // making an object Product
-        Product apple = new Product("Apple", "abc.com",0.5f,100),
-                orange = new Product("Orange", "abcd.com",0.5f,80),
-                kiwi = new Product("Kiwi", "kiwi.com", new ArrayList<>(
-                        Arrays.asList(
-                                new Variant("500g", 96),
-                                new Variant("1Kg", 180)
-                        )
-                )),
-                        surfExcel = new Product("Surf Excel", "surf.com", new ArrayList<>(
-                                Arrays.asList(new Variant("1kg", 180))
-                        ));
-
-        // trying to add products in the cart
+        // Car object to store items
         Cart cart = new Cart();
-        cart.add(orange,2.5f);
-        cart.add(kiwi, kiwi.variants.get(1));
-        cart.add(kiwi, kiwi.variants.get(1));
-        cart.add(kiwi, kiwi.variants.get(1));
-        cart.add(surfExcel, surfExcel.variants.get(0));
-        cart.add(surfExcel, surfExcel.variants.get(0));
 
-        System.out.println(cart);
-        System.out.println();
+        Scanner scanner = new Scanner(System.in);
 
-        // trying to remove products in the cart
-        cart.remove(orange);
+        while (true) {
+            System.out.print(optionsMenu);
 
-        System.out.println(cart);
-        System.out.println();
+            // Make a option receiver integer variable
+            int chooseOption = scanner.nextInt();
 
-        // removing one quantity surf excel from the cart
-        cart.decrement(surfExcel, surfExcel.variants.get(0));
-
-        System.out.println(cart);
-        System.out.println();
-
-        // removing the surf excel from the cart
-        cart.decrement(surfExcel, surfExcel.variants.get(0));
-
-        System.out.println(cart);
+            switch (chooseOption) {
+                case 0:
+                    System.out.println("\u001B[33m" + "You exit the application." + "\u001B[0m");
+                    return;
+                case 1:
+                    System.out.print("\nYou choose to add a product...");
+                    ProductOperations.addProduct(products);
+                    break;
+                case 2:
+                    System.out.print("\nYou choose to edit a product...");
+                    ProductOperations.editProduct(products);
+                    break;
+                case 3:
+                    System.out.print("\nYou choose to delete a product...");
+                    ProductOperations.deleteProduct(products);
+                    break;
+                case 4:
+                    System.out.println("\u001B[33m" + products.values() + "\u001B[0m");
+                    break;
+                case 5:
+                    System.out.print("\nYou choose to add a product in your cart...");
+                    CartOperations.addItem(cart, products);
+                    break;
+                case 6:
+                    System.out.print("\nYou choose to edit a item in cart...");
+                    CartOperations.editItem(cart, products);
+                    break;
+                case 7:
+                    System.out.print("\nYou choose to delete a item from cart...");
+                    CartOperations.removeItem(cart, products);
+                    break;
+                case 8:
+                    System.out.println("\u001B[33m" + cart + "\u001B[0m");
+                    break;
+                case 9:
+                    System.out.println("\u001B[32m" + "THANK YOU! COME BACK.\nORDER RECEIVED" + "\u001B[0m");
+                    return;
+                default:
+                    System.out.println("\u001B[31m" + "ERROR! You entered wrong input. Please select from 0 to 9" + "\u001B[0m");
+            }
+            System.out.println();
+        }
     }
 }

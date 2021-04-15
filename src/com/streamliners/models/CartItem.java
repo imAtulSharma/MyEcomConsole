@@ -39,7 +39,7 @@ public class CartItem {
     @Override
     public String toString() {
         return "\n\t" + name + " ( " +
-                String.format("%f X %f = %f", unitPrice, qty, cost()) +
+                String.format("Rs. %.2f X %.2f = %.2f Rs.", unitPrice, qty, cost()) +
                 " )";
     }
 }

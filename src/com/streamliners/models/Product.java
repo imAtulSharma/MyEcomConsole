@@ -58,55 +58,31 @@ public class Product {
         this.pricePerKg = pricePerKg;
     }
 
-    // /**
-    //  * Overriding the method {@link Object#toString()}
-    //  *
-    //  * @return the data of the {@link Product} class with all parameters
-    //  */
-    // @Override
-    // public String toString() {
-    //     StringBuilder stringBuilder = new StringBuilder();
-    //
-    //     if (this.type == ProductType.TYPE_WEIGHT_BASED_PRODUCT) {
-    //         stringBuilder.append("WeightBasedProduct { ");
-    //     } else {
-    //         stringBuilder.append("VariantBasedProduct { ");
-    //     }
-    //
-    //     stringBuilder.append("name = ").append(this.name);
-    //
-    //     if (this.type == ProductType.TYPE_WEIGHT_BASED_PRODUCT) {
-    //         stringBuilder.append("minQty = ").append(this.minQty);
-    //         stringBuilder.append(", pricePerKg = ").append(this.pricePerKg);
-    //     } else {
-    //         stringBuilder.append(", variants = ").append(this.variants);
-    //     }
-    //     stringBuilder.append(" } ");
-    //
-    //     return stringBuilder.toString();
-    // }
-    //
-    // /**
-    //  * Overriding the method {@link Object#equals(Object)}
-    //  *
-    //  * @param o object to compare with
-    //  * @return  true when both are same otherwise false
-    //  */
-    // @Override
-    // public boolean equals(Object o) {
-    //     if (this == o) return true;
-    //     if (o == null || getClass() != o.getClass()) return false;
-    //     Product product = (Product) o;
-    //     return Objects.equals(name, product.name) && Objects.equals(imageURL, product.imageURL);
-    // }
-    //
-    // /**
-    //  * Overriding the method {@link Object#hashCode()}
-    //  *
-    //  * @return integer value of the hash code generated
-    //  */
-    // @Override
-    // public int hashCode() {
-    //     return Objects.hash(name, imageURL);
-    // }
+    /**
+     * Overriding the method {@link Object#toString()}
+     *
+     * @return the data of the {@link Product} class with all parameters
+     */
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if (this.type == ProductType.TYPE_WEIGHT_BASED_PRODUCT) {
+            stringBuilder.append("\nWeightBasedProduct { ");
+        } else {
+            stringBuilder.append("VariantBasedProduct { ");
+        }
+
+        stringBuilder.append("name = ").append(this.name);
+
+        if (this.type == ProductType.TYPE_WEIGHT_BASED_PRODUCT) {
+            stringBuilder.append(", minQty = ").append(this.minQty);
+            stringBuilder.append(", pricePerKg = ").append(this.pricePerKg);
+        } else {
+            stringBuilder.append(", variants = ").append(this.variants);
+        }
+        stringBuilder.append(" } ");
+
+        return stringBuilder.toString();
+    }
 }

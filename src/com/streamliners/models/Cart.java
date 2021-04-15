@@ -138,6 +138,6 @@ public class Cart {
     @Override
     public String toString() {
         return cartItems.values() +
-                String.format("\ntotal %d items (Rs. %f)", numberOfItems, totalAmount);
+                String.format("\ntotal %d items (Rs. %.2f)", numberOfItems, totalAmount);
     }
 }
