@@ -3,15 +3,23 @@ package com.streamliners.models;
 import java.util.HashMap;
 
 /**
- * represents cart with...
- *
- * totalAmount - total amount of the purchase
- * numberOfItems - number of total items in the cart
- * cartItems - Map of the cart items with name as key and quantity as value
+ * represents cart with having cart items as its members
  */
 public class Cart {
+
+    /**
+     * Total amount of all items in cart
+     */
     float totalAmount;
+
+    /**
+     * To number of items in cart
+     */
     int numberOfItems;
+
+    /**
+     * Map of all items in cart
+     */
     public HashMap<String, CartItem> cartItems = new HashMap<>();
 
     /**

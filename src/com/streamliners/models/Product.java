@@ -1,36 +1,35 @@
 package com.streamliners.models;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
- * represents a product with...
- *
- * name - name of the product
- * imageURL - URL of image of the product
- * type - whether it is weight based or variant based product
+ * Represents a product
  */
 public class Product {
-
+    /**
+     * Name and image URL of the product
+     */
     public String name, imageURL;
+
+    /**
+     * Type of the product <br>
+     * Whether it is weight based or variant based
+     */
     public int type;
 
     /**
-     * fields for the Variant Based Product
-     * variants - list of all {@link Variant} of the product
+     * List of {@link Variant}(s) of the product
      */
     public List<Variant> variants;
 
     /**
-     * fields for the Weight Based Product
-     * minQty - minimum quantity have to purchase at least
-     * pricePerKg - price of the product of 1 kg
+     * Minimum quantity to be purchased at least <br>
+     * Price of the product of unit kilogram
      */
-    float minQty, pricePerKg;
+    public float minQty, pricePerKg;
 
     /**
-     * Constructor for the variant based product
-     *
+     * Initialize the variant based product
      * @param name      name of the product
      * @param imageURL  URL of the image for the product
      * @param variants  list of the variants of the product
@@ -43,8 +42,7 @@ public class Product {
     }
 
     /**
-     * Constructor for the weight based product
-     *
+     * Initialize the weight based product
      * @param name       name of the product
      * @param imageURL   URL of the image for the product
      * @param minQty     minimum quantity must be purchased of the product

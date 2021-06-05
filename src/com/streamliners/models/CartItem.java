@@ -1,19 +1,23 @@
 package com.streamliners.models;
 
 /**
- * represents Cart Item with...
- *
- * name - name of the item
- * unitPrice - price per unit of the cart item
- * qty - quantity of the item
+ * Represents Cart Item
  */
 public class CartItem {
-    String name;
-    float unitPrice, qty;
 
     /**
-     * Constructor to create cart item with...
-     *
+     * Name of the item
+     */
+    public String name;
+
+    /**
+     * Unit price of the item <br>
+     * Quantity of the item
+     */
+    public float unitPrice, qty;
+
+    /**
+     * Initialize cart item
      * @param name name of the product
      * @param unitPrice price of the product of unit quantity
      * @param qty quantity of the product
@@ -25,7 +29,8 @@ public class CartItem {
     }
 
     /**
-     * @return the cost of the item
+     * Calculate the cost of the item
+     * @return cost of the item
      */
     public float cost() {
         return unitPrice * qty;

@@ -1,18 +1,21 @@
 package com.streamliners.models;
 
 /**
- * represents a variant with...
- *
- * name - name of the variant
- * price - price of the variant
+ * Represents a variant
  */
 public class Variant {
-
-    String name;
-    float price;
+    /**
+     * Name of the variant
+     */
+    public String name;
 
     /**
-     * Constructor to initialize product with all parameters
+     * Price of the variant
+     */
+    public float price;
+
+    /**
+     * Initialize the product with . . .
      *
      * @param name  name of the variant
      * @param price price of the variant
